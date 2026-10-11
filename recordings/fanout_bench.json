@@ -1,0 +1,33 @@
+{
+  "methods": {
+    "batched": {
+      "n": 5,
+      "median_ms": 383.0204410041915,
+      "min_ms": 306.4798199920915,
+      "max_ms": 554.3885380029678,
+      "median_tokens": 829,
+      "retries": 0
+    },
+    "sequential": {
+      "n": 5,
+      "median_ms": 3604.9821060005343,
+      "min_ms": 3198.2680079963757,
+      "max_ms": 4117.659087991342,
+      "median_tokens": 2852,
+      "retries": 0
+    },
+    "parallel": {
+      "n": 5,
+      "median_ms": 1622.7932480105665,
+      "min_ms": 1455.973445001291,
+      "max_ms": 3193.368388005183,
+      "median_tokens": 2852,
+      "retries": 0
+    }
+  },
+  "n_runs": 5,
+  "state_chars": 113,
+  "recorded_at": "2026-10-11T15:33:06.248921+00:00",
+  "where": "",
+  "model": "jev-1.13.0"
+}

@@ -39,10 +39,10 @@
     }
   },
   "meta": {
-    "recorded_at": "2026-10-11T12:40:33.303060+00:00",
-    "latency_ms": 297.94538900023326,
+    "recorded_at": "2026-10-11T15:15:20.880854+00:00",
+    "latency_ms": 429.42815300193615,
     "key": "4703194f0ead1183",
     "retry_count": 0,
-    "where": "first-record"
+    "where": ""
   }
 }

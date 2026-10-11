@@ -61,6 +61,9 @@ def decide(state, questions: dict, model: str | None = None, command: str = "dec
     """Live call with $1 hard budget guardrail. Raises JevError/BudgetExceeded."""
     from .budget import BudgetExceeded, estimate_tokens, observe, release, reserve, settle
 
+    if os.getenv("JEV_PUBLIC_DEMO", "") == "1":
+        # Public demo builds never load the key at all: no spend possible, even by accident.
+        raise JevError("Public demo build: live calls disabled (JEV_PUBLIC_DEMO=1).")
     api_key = os.getenv("TYPESAFE_API_KEY", "")
     if not api_key:
         raise JevError(

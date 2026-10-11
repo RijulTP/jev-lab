@@ -1,0 +1,23 @@
+# Canned reply templates. Jev judges; templates reply. Names used by policy.py.
+order_status:
+  text: "Thanks — I found your order. Current status: {detail}. Reply TRACK for live updates."
+refund_policy:
+  text: "I can help with that charge. Duplicate charges are eligible for a refund — I've started a review of {detail}."
+technical_help:
+  text: "Sorry about that error. Please try these steps: 1) sign out/in 2) retry. If the 500 persists, I've flagged it to engineering ({detail})."
+account_help:
+  text: "Let's get you back in. I've sent a reset link and unlocked the account for {detail}."
+product_info:
+  text: "Good question — here's how it works: {detail}. Want me to loop in sales?"
+complaint_ack:
+  text: "You're right to be frustrated, and I'm sorry. I've escalated this with priority and a human will reply shortly ({detail})."
+out_of_scope:
+  text: "That's outside what I can handle here — I've routed it to the right team ({detail})."
+refuse_override:
+  text: "I can't do that. I can still help with your order, billing, or account question."
+human_handoff:
+  text: "Of course — connecting you to a human agent now. Your context goes with you."
+priority_handoff:
+  text: "This sounds urgent, so I'm moving you to the front of the human queue. Demo only — in a real emergency, contact local emergency services."
+clarify:
+  text: "Just to point you right — is this about an order, a charge, or access to your account?"

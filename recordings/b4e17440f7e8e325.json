@@ -22,11 +22,11 @@
         "name": "team",
         "type": "choice",
         "choice": "sales",
-        "confidence": 0.77,
+        "confidence": 0.74,
         "probabilities": {
-          "billing": 0.02,
-          "technical": 0.13,
-          "sales": 0.85
+          "billing": 0.03,
+          "technical": 0.14,
+          "sales": 0.83
         }
       }
     },
@@ -36,10 +36,10 @@
     }
   },
   "meta": {
-    "recorded_at": "2026-10-11T12:40:34.288440+00:00",
-    "latency_ms": 343.748280996806,
+    "recorded_at": "2026-10-11T15:15:22.216849+00:00",
+    "latency_ms": 606.3585840020096,
     "key": "b4e17440f7e8e325",
     "retry_count": 0,
-    "where": "first-record"
+    "where": ""
   }
 }

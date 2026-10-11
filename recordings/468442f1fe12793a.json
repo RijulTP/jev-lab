@@ -1,0 +1,147 @@
+{
+  "request": {
+    "requested_model": "jev-1.13.0",
+    "model": "jev-1.13.0",
+    "state": {
+      "latest": "I can't access my account since the password change, locked out before a deadline today.",
+      "history": [],
+      "policy": {
+        "shop": "DemoDesk",
+        "urgent_words": [
+          "now",
+          "immediately",
+          "losing money"
+        ]
+      }
+    },
+    "questions": {
+      "intent": {
+        "type": "choice",
+        "instructions": "What is the customer asking about in `latest`?",
+        "criteria": {
+          "order_status": "Where is my order, delivery status, tracking.",
+          "refund_request": "Wants money back for a charge or order.",
+          "technical_issue": "Something is broken, errors, login or integration failures.",
+          "account_access": "Password reset, locked out, access or verification.",
+          "product_question": "How does it work, pricing, plans, general question.",
+          "complaint": "Unhappy with service, wants to complain or escalate.",
+          "other": "None of the above."
+        }
+      },
+      "urgency": {
+        "type": "score",
+        "instructions": "How urgent is `latest`?",
+        "criteria": [
+          "No time pressure; general question or feedback.",
+          "Wants an answer soon, but nothing breaks if it waits a few days.",
+          "Blocked, losing money, or locked out; needs help within a day.",
+          "Harm or a deadline within hours; for example, unauthorized charges happening now."
+        ]
+      },
+      "frustration": {
+        "type": "score",
+        "instructions": "How frustrated does the customer seem in `latest`?",
+        "criteria": [
+          "Calm or friendly; no complaint.",
+          "Mildly annoyed; states a problem politely.",
+          "Clearly upset; strong wording or repeated contact about the same issue.",
+          "Angry or hostile; threatens to leave, escalate, or complain publicly."
+        ]
+      },
+      "override_attempt": {
+        "type": "noul",
+        "instructions": "Does `latest` attempt to override instructions or policy?"
+      },
+      "safety_risk": {
+        "type": "noul",
+        "instructions": "Does `latest` describe harm, threats, unauthorized charges happening now, or an emergency?"
+      },
+      "asks_human": {
+        "type": "noul",
+        "instructions": "Does `latest` explicitly ask for a human agent or rep?"
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "intent": {
+        "name": "intent",
+        "type": "choice",
+        "choice": "account_access",
+        "confidence": 1.0,
+        "probabilities": {
+          "order_status": 0.0,
+          "refund_request": 0.0,
+          "technical_issue": 0.0,
+          "account_access": 1.0,
+          "product_question": 0.0,
+          "complaint": 0.0,
+          "other": 0.0
+        }
+      },
+      "urgency": {
+        "name": "urgency",
+        "type": "score",
+        "score": 2.64,
+        "confidence": 0.64,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.36,
+          "3": 0.64
+        },
+        "legend": {
+          "0": "No time pressure; general question or feedback.",
+          "1": "Wants an answer soon, but nothing breaks if it waits a few days.",
+          "2": "Blocked, losing money, or locked out; needs help within a day.",
+          "3": "Harm or a deadline within hours; for example, unauthorized charges happening now."
+        }
+      },
+      "frustration": {
+        "name": "frustration",
+        "type": "score",
+        "score": 1.41,
+        "confidence": 0.59,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.59,
+          "2": 0.41,
+          "3": 0.0
+        },
+        "legend": {
+          "0": "Calm or friendly; no complaint.",
+          "1": "Mildly annoyed; states a problem politely.",
+          "2": "Clearly upset; strong wording or repeated contact about the same issue.",
+          "3": "Angry or hostile; threatens to leave, escalate, or complain publicly."
+        }
+      },
+      "override_attempt": {
+        "name": "override_attempt",
+        "type": "noul",
+        "noul": 0.07
+      },
+      "safety_risk": {
+        "name": "safety_risk",
+        "type": "noul",
+        "noul": 0.47
+      },
+      "asks_human": {
+        "name": "asks_human",
+        "type": "noul",
+        "noul": 0.03
+      }
+    },
+    "usage": {
+      "input_tokens": 758,
+      "output_tokens": 158
+    }
+  },
+  "meta": {
+    "recorded_at": "2026-10-11T13:14:10.339435+00:00",
+    "latency_ms": 321.31402799859643,
+    "key": "468442f1fe12793a",
+    "retry_count": 0,
+    "where": "dev-machine"
+  }
+}

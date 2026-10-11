@@ -30,12 +30,22 @@ setup: ## Install everything with uv.
 run: ## Launch app (demo mode if no key).
 	$(UV) run streamlit run $(APP)
 
-run-live: ## Launch app hitting the real API (requires key).
-	@test -n "$$TYPESAFE_API_KEY" || (echo "Set TYPESAFE_API_KEY in .env first." && exit 1)
+# Load .env so guards see the key (the app loads it via dotenv at runtime).
+ifneq (,$(wildcard .env))
+include .env
+export
+endif
+
+run-live: ## Launch app hitting the real API (requires key in env or .env).
+	@test -n "$$TYPESAFE_API_KEY" || (echo "Set TYPESAFE_API_KEY in .env first (see .env.example)." && exit 1)
 	$(UV) run streamlit run $(APP)
 
 record: ## Re-record demo responses from live API (RECORD_ARGS="--force --where home" for full re-record).
 	$(UV) run python scripts/record.py $(RECORD_ARGS)
+
+record-rec: ## Record inbox (30) + presets (RECORD_ARGS="--force --where home").
+	$(UV) run python scripts/record.py $(RECORD_ARGS)
+	$(UV) run python scripts/record.py --inbox $(RECORD_ARGS)
 
 cli: ## Terminal demo.
 	$(UV) run python scripts/cli.py

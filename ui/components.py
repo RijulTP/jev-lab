@@ -1,4 +1,4 @@
-"""Shared Streamlit widgets: mode badge, probability bars, raw JSON panel."""
+"""Shared Streamlit widgets: status line, probability bars, raw JSON panel."""
 from __future__ import annotations
 
 import json
@@ -7,22 +7,29 @@ import os
 import streamlit as st
 
 
+def public_demo() -> bool:
+    return os.getenv("JEV_PUBLIC_DEMO", "") == "1"
+
+
 def is_live() -> bool:
+    if public_demo():
+        return False
     return bool(os.getenv("TYPESAFE_API_KEY", ""))
 
 
-def mode_badge(latency_ms: float | None = None, input_tokens: int | None = None,
-               recorded_at: str | None = None):
-    mode = "LIVE" if is_live() else "DEMO"
-    color = "green" if is_live() else "orange"
-    extra = ""
-    if latency_ms is not None:
-        extra += f" · {latency_ms:.0f} ms"
-    if input_tokens is not None:
-        extra += f" · {input_tokens} in-tok"
+def status_line(live: bool, recorded_at: str | None = None, model: str = "",
+                ms: float | None = None, toks: int | None = None):
+    """One status line replacing badge + stamp + stats."""
+    bits = ["Live" if live else "Demo"]
     if recorded_at:
-        extra += f" · recorded {recorded_at[:10]}"
-    st.markdown(f":{color}[● {mode}{extra}]")
+        bits.append(f"recorded {recorded_at[:10]}")
+    if model:
+        bits.append(model)
+    if ms is not None:
+        bits.append(f"{ms:.0f} ms")
+    if toks is not None:
+        bits.append(f"{toks} tokens")
+    st.caption(" · ".join(bits))
 
 
 def prob_bars(answer: dict):
