@@ -1,0 +1,70 @@
+{
+  "request": {
+    "requested_model": "jev-1.13.0",
+    "model": "jev-1.13.0",
+    "state": "Nobody on our team can log in since this morning. We get a 500 error on every attempt.",
+    "questions": {
+      "team": {
+        "type": "choice",
+        "instructions": "Which team should handle this?",
+        "criteria": {
+          "backend": "Login, auth, server errors",
+          "frontend": "UI rendering or browser issues",
+          "support": "General help or account questions"
+        }
+      },
+      "severity": {
+        "type": "score",
+        "instructions": "How severe is the reported issue?",
+        "criteria": [
+          "Cosmetic; no impact to functionality",
+          "Broken or degraded feature, but workaround exists",
+          "Blocking issue; no workaround exists"
+        ]
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "team": {
+        "name": "team",
+        "type": "choice",
+        "choice": "backend",
+        "confidence": 1.0,
+        "probabilities": {
+          "backend": 1.0,
+          "frontend": 0.0,
+          "support": 0.0
+        }
+      },
+      "severity": {
+        "name": "severity",
+        "type": "score",
+        "score": 2.0,
+        "confidence": 1.0,
+        "probabilities": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 1.0
+        },
+        "legend": {
+          "0": "Cosmetic; no impact to functionality",
+          "1": "Broken or degraded feature, but workaround exists",
+          "2": "Blocking issue; no workaround exists"
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 411,
+      "output_tokens": 52
+    }
+  },
+  "meta": {
+    "recorded_at": "2026-10-11T12:40:32.988344+00:00",
+    "latency_ms": 358.9401729987003,
+    "key": "7877615e8f26d956",
+    "retry_count": 0,
+    "where": "first-record"
+  }
+}

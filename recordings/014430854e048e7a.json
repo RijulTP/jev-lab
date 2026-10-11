@@ -1,0 +1,47 @@
+{
+  "request": {
+    "requested_model": "jev-1.13.0",
+    "model": "jev-1.13.0",
+    "state": "Hi, can you sponsor my work visa? I need an H-1B transfer before my current status expires.",
+    "questions": {
+      "team": {
+        "type": "choice",
+        "instructions": "Which team should handle this?",
+        "criteria": {
+          "billing": "Charges, invoices, payment problems",
+          "technical": "Bugs or integration problems",
+          "sales": "Pricing or account questions",
+          "other": "None of the above"
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "team": {
+        "name": "team",
+        "type": "choice",
+        "choice": "other",
+        "confidence": 1.0,
+        "probabilities": {
+          "billing": 0.0,
+          "technical": 0.0,
+          "sales": 0.0,
+          "other": 1.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 370,
+      "output_tokens": 45
+    }
+  },
+  "meta": {
+    "recorded_at": "2026-10-11T12:40:33.926380+00:00",
+    "latency_ms": 287.28791500179796,
+    "key": "014430854e048e7a",
+    "retry_count": 0,
+    "where": "first-record"
+  }
+}

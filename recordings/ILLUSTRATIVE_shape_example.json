@@ -1,0 +1,31 @@
+{
+  "_origin": "illustrative, NOT a real Jev response. Do not present as Jev output. Run `make record` with TYPESAFE_API_KEY for real data.",
+  "request": {
+    "model": "jev-latest",
+    "state": "ILLUSTRATIVE placeholder state (not sent to Jev)",
+    "questions": {
+      "example": {
+        "type": "noul",
+        "instructions": "Illustrative only"
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "example": {
+        "type": "noul",
+        "noul": 0.87
+      }
+    },
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "meta": {
+    "recorded_at": null,
+    "latency_ms": 0,
+    "note": "Shape example only. Calibration and screenshots require real `make record` output."
+  }
+}

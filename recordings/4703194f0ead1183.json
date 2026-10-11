@@ -1,0 +1,48 @@
+{
+  "request": {
+    "requested_model": "jev-1.13.0",
+    "model": "jev-1.13.0",
+    "state": {
+      "ticket": {
+        "subject": "Duplicate charge",
+        "messages": [
+          {
+            "from": "customer",
+            "text": "I was charged twice for order A-104. Please refund the duplicate."
+          }
+        ]
+      },
+      "order": {
+        "id": "A-104"
+      },
+      "refund_policy": "Duplicate charges are eligible for a refund."
+    },
+    "questions": {
+      "refund_requested": {
+        "type": "noul",
+        "instructions": "Does `ticket.messages[0].text` request a refund?"
+      }
+    }
+  },
+  "response": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "refund_requested": {
+        "name": "refund_requested",
+        "type": "noul",
+        "noul": 0.99
+      }
+    },
+    "usage": {
+      "input_tokens": 367,
+      "output_tokens": 21
+    }
+  },
+  "meta": {
+    "recorded_at": "2026-10-11T12:40:33.303060+00:00",
+    "latency_ms": 297.94538900023326,
+    "key": "4703194f0ead1183",
+    "retry_count": 0,
+    "where": "first-record"
+  }
+}

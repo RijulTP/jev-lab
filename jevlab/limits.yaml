@@ -1,0 +1,31 @@
+# Single source of truth for beta-varying limits/prices.
+# Refresh via `make doctor` (live) or docs below. Do not hardcode elsewhere.
+as_of: "2026-10-11"
+model_default: "jev-latest"
+model_pinned: "jev-1.13.0"
+price_input_per_mtok_usd: 0.042
+price_output_per_mtok_usd: 0.0
+context_total_tokens: 64000
+context_state_plus_longest_question_tokens: 32000
+rate_limit_tokens_per_sec: 100000
+rate_limit_requests_per_sec: 80
+rate_limits_dynamic: true
+choice_max_options: 255
+score_min_levels: 2
+score_max_levels: 10
+input_text_only: true
+openrouter_context_tokens: 32000
+staleness_warn_days: 30
+budget_cap_usd: 1.00
+budget_ledger_path: ".jevlab_usage.json"
+budget_mode: "hard-block"
+budget_overhead_tokens: 350
+budget_per_request_ceiling_tokens: 64000
+sources:
+  models: "https://docs.typesafe.ai/models"
+  pricing: "https://docs.typesafe.ai/models"
+  choice_max: "https://docs.typesafe.ai/primitives/choice"
+  score_levels: "https://docs.typesafe.ai/primitives/score"
+  probabilities_sum_to_one: "https://docs.typesafe.ai/primitives/choice"
+  confidence_noul_proxy: "https://docs.typesafe.ai/confidence"
+  state_shapes: "https://docs.typesafe.ai/concepts/state"
